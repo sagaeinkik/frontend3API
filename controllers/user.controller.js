@@ -29,7 +29,6 @@ module.exports.getAllUsers = async (request, reply) => {
         //Returnera användarna
         return reply.send(users);
     } catch (error) {
-        console.error('Något gick fel vid hämtning av alla användare: ', error);
         return reply.send(error);
     }
 };
@@ -52,7 +51,11 @@ module.exports.getUser = async (request, reply) => {
         //Returnera användare
         return reply.send(user);
     } catch (error) {
-        console.error('Något gick fel vid hämtning av enskild användare: ', error);
+        //Om det är cast to-error (fel i ID)
+        if (error.message.includes('Cast to ObjectId failed')) {
+            err = errorHandler.createError('Not found', 404, 'Inlägg med angivet ID hittades ej');
+            return reply.code(err.https_response.code).send(err);
+        }
         return reply.send(error);
     }
 };
@@ -98,7 +101,11 @@ module.exports.createUser = async (request, reply) => {
         //Returnera användare och token
         return reply.code(201).send({ message: 'Användare skapad!', newUser, token: token });
     } catch (error) {
-        console.error('Något gick fel vid skapande av användare: ', error);
+        //Om det är cast to-error (fel i ID)
+        if (error.message.includes('Cast to ObjectId failed')) {
+            err = errorHandler.createError('Not found', 404, 'Inlägg med angivet ID hittades ej');
+            return reply.code(err.https_response.code).send(err);
+        }
         return reply.send(error);
     }
 };
@@ -137,7 +144,11 @@ module.exports.loginUser = async (request, reply) => {
             token: token,
         });
     } catch (error) {
-        console.error('Något gick fel vid inloggning: ', error);
+        //Om det är cast to-error (fel i ID)
+        if (error.message.includes('Cast to ObjectId failed')) {
+            err = errorHandler.createError('Not found', 404, 'Inlägg med angivet ID hittades ej');
+            return reply.code(err.https_response.code).send(err);
+        }
         return reply.send(error);
     }
 };

@@ -23,6 +23,7 @@ fastify.get('/', async (request, reply) => {
 });
 
 fastify.register(require('./routes/user.routes'));
+fastify.register(require('./routes/blogpost.routes'));
 
 // DB-anslutning
 function dbConnect() {
