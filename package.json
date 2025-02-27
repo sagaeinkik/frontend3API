@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon server.js",
+    "start": "node server.js"
   },
   "author": "Saga Einarsdotter Kikajon",
   "license": "ISC",
@@ -12,6 +13,7 @@
     "@fastify/cors": "^11.0.0",
     "bcrypt": "^5.1.1",
     "fastify": "^5.2.1",
+    "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.11.0"
   },
   "devDependencies": {
