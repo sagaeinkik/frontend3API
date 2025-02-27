@@ -12,7 +12,7 @@ module.exports.getAllUsersOpts = {
                 items: {
                     type: 'object',
                     properties: {
-                        id: { type: 'string' },
+                        _id: { type: 'string' },
                         username: { type: 'string' },
                     },
                 },
@@ -29,7 +29,7 @@ module.exports.getSingleUserOpts = {
             200: {
                 type: 'object',
                 properties: {
-                    id: { type: 'string' },
+                    _id: { type: 'string' },
                     username: { type: 'string' },
                 },
             },
@@ -57,7 +57,7 @@ module.exports.createUserOpts = {
                     newUser: {
                         type: 'object',
                         properties: {
-                            id: { type: 'string' },
+                            _id: { type: 'string' },
                             username: { type: 'string' },
                         },
                     },
@@ -88,7 +88,7 @@ module.exports.loginUserOpts = {
                     user: {
                         type: 'object',
                         properties: {
-                            id: { type: 'string' },
+                            _id: { type: 'string' },
                             username: { type: 'string' },
                         },
                     },
