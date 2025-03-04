@@ -1,6 +1,6 @@
 # Blog API
 
-Moment 4 i Fördjupad Frontendutveckling
+Moment 3 i Fördjupad Frontendutveckling
 
 ## Bakgrund
 
