@@ -121,7 +121,7 @@ module.exports.loginUser = async (request, reply) => {
         const user = await User.findOne({ username: username });
 
         if (!user) {
-            err = errorHandler.createError('Not found', 404, 'Användaren hittades inte');
+            err = errorHandler.createError('Not found', 404, 'Fel användarnamn eller lösenord');
             return reply.code(err.https_response.code).send(err);
         }
 
