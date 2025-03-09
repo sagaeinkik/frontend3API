@@ -12,7 +12,11 @@ let dbUrl = env.DB_CONNECTIONSTRING;
 const port = env.PORT || 3000;
 
 // Middleware
-fastify.register(cors);
+fastify.register(cors, {
+    origin: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true,
+});
 
 // Routes
 fastify.get('/', async (request, reply) => {
